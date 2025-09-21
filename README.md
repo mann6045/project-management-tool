@@ -1,60 +1,115 @@
-# Project Management Tool
+🚀 Project Management Tool
+Submitted by: MANN PATEL
+Contact: [mp0668693@gmail.com]
 
-**Submitted by:** [Your Full Name]
-**Contact:** [Your Email / Phone Number]
+## 📖 Description
+This is a full-stack web application built to simplify project and task management. It provides a clean and functional interface for users to register, log in, create projects, and manage tasks within those projects. The backend is powered by Python and Flask, with a MySQL database, while the frontend is a dynamic single-page application built with React.
 
----
-## 🚀 How to Run the Project
+## ✨ Features
+User Authentication: Secure user registration and login system using JWT (JSON Web Tokens) for authentication.
 
-This is a full-stack application with a Python (Flask) backend and a JavaScript (React) frontend.
+Protected API Routes: Backend routes are protected, ensuring only authenticated users can access and modify data.
 
-### **Prerequisites**
-- Python 3.x
-- Node.js & npm
-- MySQL
+Project Management: Authenticated users can create, view, and delete their projects.
 
----
-### **Backend Setup**
-1.  Navigate to the `backend` directory: `cd backend`
-2.  Create and activate a virtual environment.
-3.  Install dependencies: `pip install -r requirements.txt` (Note: You may need to run `pip freeze > requirements.txt` first to generate this file).
-4.  Create a database in MySQL named `project_db`.
-5.  Create a `.env` file in the `backend` directory and add your database URL and a secret key:
-    ```env
-    SECRET_KEY='a_very_secret_key'
-    DATABASE_URL='mysql+pymysql://user:password@localhost/project_db'
-    ```
-6.  Apply the database migrations: `flask db upgrade`
-7.  Run the server: `flask run` (or `python run.py`). The backend will run on `http://127.0.0.1:5000`.
+Task Management: For any given project, users can create, view, update the status of (To Do, In Progress, Done), and delete tasks.
 
----
-### **Frontend Setup**
-1.  Open a new terminal and navigate to the `frontend` directory: `cd frontend`
-2.  Install dependencies: `npm install`
-3.  Start the application: `npm start`
-4.  The frontend will be available at `http://localhost:3000`.
+RESTful API: A well-structured and documented RESTful API serves as the backbone of the application.
 
----
-## 🛠️ API Endpoints Summary
+Responsive UI: A clean, component-based frontend built with React that provides a seamless user experience.
 
-A full Postman collection (`Project_Management.postman_collection.json`) is included.
+## 🛠️ Tech Stack
+Backend: Python, Flask, SQLAlchemy
 
-- **Auth:** `POST /api/register`, `POST /api/login`
-- **Projects:** `GET /api/projects`, `POST /api/projects`
-- **Tasks:** `GET /api/projects/<id>/tasks`, `POST /api/projects/<id>/tasks`, `PUT /api/tasks/<id>`
+Database: MySQL
 
----
+Frontend: JavaScript, React, Axios, React Router
+
+API Testing: Postman
+
+Version Control: Git & GitHub
+
+## 🏃‍♀️ How to Run the Project
+Prerequisites
+Python 3.x
+
+Node.js & npm
+
+MySQL Server
+
+Backend Setup
+Navigate to the backend directory: cd backend
+
+Create and activate a Python virtual environment.
+
+Generate requirements.txt: pip freeze > requirements.txt
+
+Install dependencies: pip install -r requirements.txt
+
+In your MySQL instance, create a new database named project_db.
+
+In the backend folder, create a .env file and add your credentials:
+
+Code snippet
+
+SECRET_KEY='your_super_secret_key'
+DATABASE_URL='mysql+pymysql://root:your_mysql_password@localhost/project_db'
+Apply the database schema: flask db upgrade
+
+Run the server: flask run. The backend will be available at http://127.0.0.1:5000.
+
+Frontend Setup
+Open a new terminal and navigate to the frontend directory: cd frontend
+
+Install dependencies: npm install
+
+Start the application: npm start
+
+The frontend will open in your browser at http://localhost:3000.
+
+## 🔌 API Endpoints Summary
+A full Postman collection (Project_Management.postman_collection.json) is included for detailed testing.
+
+Authentication
+
+POST /api/register
+
+POST /api/login
+
+Projects
+
+GET /api/projects (Protected)
+
+POST /api/projects (Protected)
+
+DELETE /api/projects/<project_id> (Protected)
+
+Tasks
+
+GET /api/projects/<project_id>/tasks (Protected)
+
+POST /api/projects/<project_id>/tasks (Protected)
+
+PUT /api/tasks/<task_id> (Protected)
+
+DELETE /api/tasks/<task_id> (Protected)
+
+## 📝 Development Notes
+A persistent environmental CORS issue was encountered during development, which was resolved by changing the frontend API call URL from localhost to the direct IP address 127.0.0.1. The backend is explicitly configured to allow requests from http://localhost:3000 to the 127.0.0.1 server address.
+
 ## 💡 Assumptions & Improvements
+Assumptions
+Any user who is a member of a project team has the authorization to add, update, and delete tasks within that project.
 
-### **Assumptions**
-- A task can only be assigned to one user.
-- Users are assigned to projects by the project creator (initially just the creator).
+Any user who is a member of a project team can delete the entire project.
 
-### **Possible Improvements**
-- Implement real-time updates using WebSockets for a more collaborative experience.
-- Add a more detailed commenting and file attachment feature for tasks.
-- Fully implement role-based access control in the UI (e.g., showing different buttons for Admins vs. Developers).
+The application currently focuses on core CRUD functionality rather than advanced user role permissions.
 
----
-### **Development Notes: Local Environment CORS Issue**
-*A persistent environmental CORS issue was encountered during development, preventing the frontend from communicating with the backend despite correct configurations. The issue was resolved by changing the API call URL from `localhost` to the direct IP `127.0.0.1`.*
+Possible Improvements
+Full Role-Based Access Control (RBAC): Implement logic where only "Project Managers" can create or delete projects, while "Developers" can only update task statuses.
+
+Real-Time Collaboration: Integrate WebSockets (e.g., using Flask-SocketIO) to allow changes to be pushed to all team members in real-time.
+
+Enhanced Task Details: Add features for setting task deadlines, assigning specific users to tasks, and leaving comments.
+
+Dashboard Metrics: Implement the reporting features from the brief, such as calculating the number of overdue tasks or displaying a project completion percentage bar.
