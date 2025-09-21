@@ -1,0 +1,108 @@
+.dashboard-container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 20px;
+    border: 1px solid #555;
+    border-radius: 8px;
+    text-align: left;
+}
+
+.projects-panel {
+    flex: 1;
+    padding: 20px;
+    border-right: 1px solid #555;
+}
+
+.projects-panel ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.projects-panel li {
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.projects-panel li:hover {
+    background-color: #444;
+}
+
+.tasks-panel {
+    flex: 3;
+    padding: 20px;
+}
+
+.tasks-panel table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.tasks-panel th, .tasks-panel td {
+    border: 1px solid #555;
+    padding: 8px;
+    text-align: left;
+}
+
+.task-actions button {
+    margin-right: 5px;
+    font-size: 0.8em;
+}
+
+.message {
+    margin-top: 15px;
+    color: #a0e9ff;
+}
+
+.new-project-form {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.new-project-form input {
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+.projects-panel li.selected {
+    background-color: #5c5c5c;
+    font-weight: bold;
+}
+
+.project-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.project-name {
+    cursor: pointer;
+    flex-grow: 1;
+}
+
+.project-item:hover {
+    background-color: #444;
+}
+
+.delete-btn {
+    background-color: #a13333;
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8em;
+    visibility: hidden; /* Hide by default */
+}
+
+.project-item:hover .delete-btn {
+    visibility: visible; /* Show on hover */
+}
+
+.task-actions .delete-btn {
+    visibility: visible; /* Always visible for tasks */
+}
